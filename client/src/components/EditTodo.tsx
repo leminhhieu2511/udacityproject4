@@ -20,6 +20,7 @@ interface EditTodoProps {
 
 interface EditTodoState {
   file: any
+  description: any
   uploadState: UploadState
 }
 
@@ -29,6 +30,7 @@ export class EditTodo extends React.PureComponent<
 > {
   state: EditTodoState = {
     file: undefined,
+    description: '',
     uploadState: UploadState.NoUpload
   }
 
@@ -38,6 +40,13 @@ export class EditTodo extends React.PureComponent<
 
     this.setState({
       file: files[0]
+    })
+  }
+
+  handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const description = event.target.value
+    this.setState({
+      description: description
     })
   }
 
@@ -51,7 +60,9 @@ export class EditTodo extends React.PureComponent<
       }
 
       this.setUploadState(UploadState.FetchingPresignedUrl)
-      const uploadUrl = await getUploadUrl(this.props.auth.getIdToken(), this.props.match.params.todoId)
+      const uploadUrl = await getUploadUrl(this.props.auth.getIdToken(), this.props.match.params.todoId, this.state.description)
+      console.log(uploadUrl)
+      console.log(this.state.file)
 
       this.setUploadState(UploadState.UploadingFile)
       await uploadFile(uploadUrl, this.state.file)

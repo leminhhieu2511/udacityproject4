@@ -5,6 +5,8 @@ import * as middy from 'middy'
 import { cors, httpErrorHandler } from 'middy/middlewares'
 import { getUserId } from '../utils'
 import { generateAttachmentUrl, updateAttachmentUrl } from '../../businessLogic'
+import { UpdateTodoDesRequest } from '../../requests/UpdateTodoRequest'
+
 
 export const handler = middy(
   async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -13,8 +15,10 @@ export const handler = middy(
     
     const generateAttachmentId = uuid.v4()
 
+    const updateModel:UpdateTodoDesRequest = JSON.parse(event.body)
+
     const url = await generateAttachmentUrl(generateAttachmentId)
-    await updateAttachmentUrl(userId, todoId, generateAttachmentId)
+    await updateAttachmentUrl(userId, todoId, generateAttachmentId, updateModel.description)
     return {
       statusCode: 200,
       body: JSON.stringify({

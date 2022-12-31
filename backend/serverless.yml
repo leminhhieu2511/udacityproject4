@@ -1,5 +1,5 @@
 # TODO: Change the name of the org 
-org: haringuyen
+org: baoth799
 app: serverless-todo-app
 service: serverless-todo-app
 
@@ -36,9 +36,9 @@ provider:
   # Use these variables in the functions and resouorces section below. For example, 
   # ${self:provider.environment.ATTACHMENT_S3_BUCKET}
   environment:
-    TODOS_TABLE: Todos-haringuyen-${self:provider.stage}
+    TODOS_TABLE: Todos-baoth799-${self:provider.stage}
     TODOS_CREATED_AT_INDEX: CreatedAtIndex
-    ATTACHMENT_S3_BUCKET: serverless-proj4-todo-images-${self:provider.stage}haringuyen
+    ATTACHMENT_S3_BUCKET: serverless-proj4-todo-images-${self:provider.stage}baoth799
     SIGNED_URL_EXPIRATION: 300
     INDEX_NAME: userId 
 
@@ -110,10 +110,12 @@ functions:
             Action:
                 - dynamodb:UpdateItem
                 - dynamodb:Query
+                - dynamodb:GetItem
             Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}
           - Effect: Allow
             Action:
                 - dynamodb:UpdateItem
+                - dynamodb:GetItem
             Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}/index/${self:provider.environment.INDEX_NAME}
           - Effect: Allow
             Action:
@@ -165,6 +167,7 @@ functions:
       - Effect: Allow
         Action:
           - s3:*
+          - dynamodb:*
           - xray:PutTraceSegments
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}
 

@@ -6,3 +6,7 @@ export interface UpdateTodoRequest {
   dueDate: string
   done: boolean
 }
+
+export interface UpdateTodoDesRequest {
+  description: string
+}

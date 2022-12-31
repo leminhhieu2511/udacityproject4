@@ -86,7 +86,7 @@ export class TodosAccess {
           }).promise()
     }
 
-    async updateAttachmentUrl(userId: string, todoId: string, newUrl: string) {
+    async updateAttachmentUrl(userId: string, todoId: string, newUrl: string, description?: string) {
         logger.info(
           `Updating ${newUrl} attachment URL for todo ${todoId} of table ${this.todosTable}`
         )

@@ -64,13 +64,14 @@ export async function deleteTodo(userId: string, todoId: string) {
 export async function updateAttachmentUrl(
   userId: string,
   todoId: string,
-  attachmentId: string
+  attachmentId: string,
+  description?: string
 ) {
   await checkTodo(userId, todoId)
 
   const url = await attachmentUtil.getAttachmentUrl(attachmentId)
 
-  await todosAccess.updateAttachmentUrl(userId, todoId, url)
+  await todosAccess.updateAttachmentUrl(userId, todoId, url, description)
 }
 
 export async function generateAttachmentUrl(id: string): Promise<string> {

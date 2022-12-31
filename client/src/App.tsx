@@ -40,6 +40,7 @@ export default class App extends Component<AppProps, AppState> {
           <Grid container stackable verticalAlign="middle">
             <Grid.Row>
               <Grid.Column width={16}>
+                <h1>Welcome to BaoTH1 Company</h1>
                 <Router history={this.props.history}>
                   {this.generateMenu()}
 

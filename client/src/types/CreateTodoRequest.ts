@@ -1,4 +1,6 @@
 export interface CreateTodoRequest {
-  name: string
+  name: string,
+  description?: string
+  important: boolean
   dueDate: string
 }
