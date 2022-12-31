@@ -1,5 +1,5 @@
 import { TodosAccess } from '../dataLayer/todosAcess'
-import { AttachmentUtils } from '../helpers/attachmentUtils'
+import { AttachmentS3StorageUtils } from '../helpers/attachmentUtils'
 import { TodoItem } from '../models/TodoItem'
 import { CreateTodoRequest } from '../requests/CreateTodoRequest'
 import { UpdateTodoRequest } from '../requests/UpdateTodoRequest'
@@ -10,7 +10,7 @@ import * as createError from 'http-errors'
 const logger = createLogger('todos')
 
 const todosAccess = new TodosAccess()
-const attachmentUtil = new AttachmentUtils()
+const attachmentUtil = new AttachmentS3StorageUtils()
 
 export async function getTodos(userId: string) {
   return await todosAccess.getAllTodos(userId)
