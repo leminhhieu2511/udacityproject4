@@ -1,5 +1,4 @@
 # TODO: Change the name of the org 
-org: baoth799
 app: serverless-todo-app
 service: serverless-todo-app
 
@@ -36,9 +35,9 @@ provider:
   # Use these variables in the functions and resouorces section below. For example, 
   # ${self:provider.environment.ATTACHMENT_S3_BUCKET}
   environment:
-    TODOS_TABLE: Todos-baoth799-${self:provider.stage}
+    TODOS_TABLE: Todos-hieulm10-${self:provider.stage}
     TODOS_CREATED_AT_INDEX: CreatedAtIndex
-    ATTACHMENT_S3_BUCKET: serverless-proj4-todo-images-${self:provider.stage}baoth799
+    ATTACHMENT_S3_BUCKET: hieulm10-serverless-proj4-todo-images-${self:provider.stage}-hieulm10
     SIGNED_URL_EXPIRATION: 300
     INDEX_NAME: userId 
 
