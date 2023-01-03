@@ -39,7 +39,8 @@ provider:
     TODOS_CREATED_AT_INDEX: CreatedAtIndex
     ATTACHMENT_S3_BUCKET: hieulm10-serverless-proj4-todo-images-${self:provider.stage}-hieulm10
     SIGNED_URL_EXPIRATION: 300
-    INDEX_NAME: userId 
+    INDEX_NAME: userId
+    AUTH_0_SECRET: -tWQpTHr0kuAa5fUHMdgO3GVVcWbshGgczx1fJ7wimRoQT20x4fD5Gxd_yQLlOD1
 
 functions:
 
