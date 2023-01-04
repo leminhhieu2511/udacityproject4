@@ -1,6 +1,5 @@
-# TODO: Change the name of the org 
 app: serverless-todo-app
-service: serverless-todo-app
+service: serverless-todo-app-pj4
 
 plugins:
   - serverless-webpack
@@ -37,7 +36,7 @@ provider:
   environment:
     TODOS_TABLE: Todos-hieulm10-${self:provider.stage}
     TODOS_CREATED_AT_INDEX: CreatedAtIndex
-    ATTACHMENT_S3_BUCKET: hieulm10-serverless-proj4-todo-images-${self:provider.stage}-hieulm10
+    ATTACHMENT_S3_BUCKET: serverless-todo-images-${self:provider.stage}-minhhieu2511-pj4
     SIGNED_URL_EXPIRATION: 300
     INDEX_NAME: userId
     AUTH_0_SECRET: -tWQpTHr0kuAa5fUHMdgO3GVVcWbshGgczx1fJ7wimRoQT20x4fD5Gxd_yQLlOD1

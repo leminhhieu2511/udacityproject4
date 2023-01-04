@@ -8,6 +8,12 @@
     },
     "dueDate": {
       "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "important": {
+      "type": "boolean"
     }
   },
   "required": [
