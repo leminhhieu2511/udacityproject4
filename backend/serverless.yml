@@ -6,6 +6,7 @@ plugins:
   - serverless-iam-roles-per-function
   - serverless-plugin-tracing
   - serverless-reqvalidator-plugin
+  - serverless-aws-documentation
 
 
 package:
@@ -165,8 +166,11 @@ functions:
         Resource: "arn:aws:s3:::${self:provider.environment.ATTACHMENT_S3_BUCKET}/*"
       - Effect: Allow
         Action:
-          - s3:*
-          - dynamodb:*
+          - s3:PutObject
+          - s3:GetObject
+          - dynamodb:UpdateItem
+          - dynamodb:Query
+          - dynamodb:GetItem
           - xray:PutTraceSegments
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}
 
